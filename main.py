@@ -6,11 +6,11 @@ def quadratic_roots(a, b, c):
         return "Not a quadratic equation."
     discriminant = b**2 - 4*a*c
     if discriminant >= 0:
-        sqrt_d = math.isqrt(discriminant) if discriminant == int(discriminant) else f"√({discriminant})"
-        return f"(-{b} ± {sqrt_d}) / {2*a}"
+        sqrt_d = math.isqrt(discriminant) if discriminant == int(discriminant) else "√({})".format(discriminant)
+        return "(-{0} ± {1}) / {2}".format(b, sqrt_d, 2*a)
     else:
-        sqrt_d = f"i√({-discriminant})"
-        return f"(-{b} ± {sqrt_d}) / {2*a}"
+        sqrt_d = "i√({})".format(-discriminant)
+        return "(-{0} ± {1}) / {2}".format(b, sqrt_d, 2*a)
 
 # Quadratic factorization
 def quadratic_factor(a, b, c):
@@ -23,7 +23,7 @@ def quadratic_factor(a, b, c):
     if sqrt_d is not None:
         r1 = (-b + sqrt_d) // (2*a)
         r2 = (-b - sqrt_d) // (2*a)
-        return f"(x-{r1})(x-{r2})"
+        return "(x-{0})(x-{1})".format(r1, r2)
     else:
         return "Roots are irrational; use quadratic_roots."
 
@@ -53,7 +53,7 @@ def divisors(n):
         if n % i == 0:
             result.append(i)
             result.append(-i)
-    return str('{' + "; ".join(map(str, sorted(result))) + '}')
+    return "{{{}}}".format("; ".join(map(str, sorted(result))))
 
 # Simple CLI for calculator use
 def main():
