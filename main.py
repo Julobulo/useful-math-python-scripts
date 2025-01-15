@@ -6,7 +6,7 @@ def quadratic_roots(a, b, c):
         return "Not a quadratic equation."
     discriminant = b**2 - 4*a*c
     if discriminant >= 0:
-        sqrt_d = math.isqrt(discriminant) if discriminant == int(discriminant) else "√({})".format(discriminant)
+        sqrt_d = int(math.sqrt(discriminant)) if int(math.sqrt(discriminant))**2 == discriminant else "√({})".format(discriminant)
         return "(-{0} ± {1}) / {2}".format(b, sqrt_d, 2*a)
     else:
         sqrt_d = "i√({})".format(-discriminant)
@@ -19,7 +19,7 @@ def quadratic_factor(a, b, c):
     discriminant = b**2 - 4*a*c
     if discriminant < 0:
         return "Cannot factorize with real numbers."
-    sqrt_d = math.isqrt(discriminant) if discriminant == int(discriminant) else None
+    sqrt_d = int(math.sqrt(discriminant)) if int(math.sqrt(discriminant))**2 == discriminant else None
     if sqrt_d is not None:
         r1 = (-b + sqrt_d) // (2*a)
         r2 = (-b - sqrt_d) // (2*a)
@@ -31,7 +31,7 @@ def quadratic_factor(a, b, c):
 def is_prime(n):
     if n < 2:
         return False
-    for i in range(2, math.isqrt(n) + 1):
+    for i in range(2, int(math.sqrt(n)) + 1):
         if n % i == 0:
             return False
     return True
